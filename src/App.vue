@@ -3,5 +3,7 @@
     <Header />
     <InputWrap />
     <Guide />
+    <Package />
+    <Download />
   </Box>
 </template>

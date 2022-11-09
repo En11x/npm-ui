@@ -9,9 +9,11 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Box: typeof import('vue-termui')['TuiBox']
     Br: typeof import('vue-termui')['TuiNewline']
-    Guide: typeof import('./src/components/Guide.vue')['default']
-    Header: typeof import('./src/components/Header.vue')['default']
-    InputWrap: typeof import('./src/components/InputWrap.vue')['default']
+    Download: typeof import('./src/components/download/index.vue')['default']
+    Guide: typeof import('./src/components/guide/index.vue')['default']
+    Header: typeof import('./src/components/header/index.vue')['default']
+    InputWrap: typeof import('./src/components/input/InputWrap.vue')['default']
+    Package: typeof import('./src/components/package/index.vue')['default']
     Text: typeof import('vue-termui')['TuiText']
   }
 }

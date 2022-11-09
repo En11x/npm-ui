@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { Input } from "./input/index";
+import { Input } from "./index";
 </script>
 
 <template>

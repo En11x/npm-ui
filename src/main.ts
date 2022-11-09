@@ -1,6 +1,5 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from "vue-termui";
+import App from "./App.vue";
 
-import './styles/main.css'
-
-createApp(App).mount('#app')
+const app = createApp(App, {swapScreens:false});
+app.mount();

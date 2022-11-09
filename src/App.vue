@@ -1,11 +1,10 @@
 <script setup lang="ts"></script>
 
 <template>
-  <main>main</main>
+  <Box
+     :width="100"
+    flexDirection="column"
+  >
+    <Header />
+  </Box>
 </template>
-
-<style scoped>
-header {
-  line-height: 1.5;
-}
-</style>

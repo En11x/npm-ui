@@ -7,7 +7,7 @@
     justifyContent="center"
   >
     <Text color="yellow">
-      UI
+      Packge
     </Text>
   </Box>
 </template>

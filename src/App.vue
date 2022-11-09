@@ -4,6 +4,7 @@
     <InputWrap />
     <Guide />
     <Package />
+    <Deps />
     <Download />
   </Box>
 </template>

@@ -17,9 +17,7 @@ export const Input = defineComponent({
     const active = ref<boolean>(true);
     const text = computed({
       get() {
-        return active.value
-          ? props.modelValue ?? props.placeholder ?? ""
-          : props.modelValue;
+        return props.modelValue;
       },
       set(val: string) {
         emit("update:modelValue", val);
@@ -30,6 +28,9 @@ export const Input = defineComponent({
       text.value += data;
     });
 
-    return () => h(TuiText, () => text.value);
+    return () =>
+      text.value
+        ? h(TuiText, () => text.value)
+        : h(TuiText, { dimmed: true }, () => props.placeholder);
   },
 });

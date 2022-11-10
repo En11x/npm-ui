@@ -1,4 +1,4 @@
-import { defineComponent, h } from "vue";
+import { defineComponent, h, computed } from "vue";
 import { onInputData, TuiText } from "vue-termui";
 
 export const Input = defineComponent({
@@ -12,23 +12,21 @@ export const Input = defineComponent({
       type: String,
     },
   },
+  emits: ["update:modelValue"],
   setup(props, { emit }) {
-    const { modelValue, placeholder } = props;
-    console.log(modelValue, "?");
-
-    const active = ref<boolean>(true);
-
-    function update(value: string) {
-      emit("update:modelValue", value);
-    }
-
-    onInputData(({ data, event }) => {
-      update(data);
+    const text = computed({
+      get() {
+        return props.modelValue;
+      },
+      set(val: string) {
+        emit("update:modelValue", val);
+      },
     });
 
-    return () =>
-      placeholder && !modelValue
-        ? h(TuiText, () => placeholder)
-        : h(TuiText, { dimmed: true }, () => modelValue);
+    onInputData(({ data, event }) => {
+      text.value = data;
+    });
+
+    return () => h(TuiText, () => text.value);
   },
 });

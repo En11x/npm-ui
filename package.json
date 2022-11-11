@@ -5,6 +5,7 @@
     "dev": "vtui dev"
   },
   "dependencies": {
+    "ohmyfetch": "^0.4.21",
     "vue": "^3.2.41",
     "vue-termui": "^0.0.17"
   },

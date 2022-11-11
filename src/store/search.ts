@@ -1,10 +1,11 @@
-import { PackageInfo } from "@/types";
+import { searchPackages } from "@/services";
+import { Package } from "@/types";
 import { defineStore } from "pinia";
 import { ref } from "vue";
 
 export const useSearchStore = defineStore("search", () => {
   const keyword = ref("");
-  const packages = ref<PackageInfo[]>([
+  const packages = ref<Package[]>([
     {
       date: "",
       description: "",
@@ -14,6 +15,14 @@ export const useSearchStore = defineStore("search", () => {
       version: "",
     },
   ]);
+
+  async function search(k: string, p = 0) {
+    await searchPackages(k, p);
+  }
+
+  watch(keyword, () => {
+    search(keyword.value);
+  });
 
   return { keyword, packages };
 });

@@ -3,7 +3,7 @@ export interface DepInfo {
   version: string;
 }
 
-export interface PackageInfo {
+export interface Package {
   name: string;
   scope: string;
   version: string;
@@ -29,6 +29,19 @@ export interface PackageInfo {
     username: string;
     email: string;
   }[];
+}
+
+export interface NpmPackage {
+  package: Package;
+  score: {
+    final: number;
+    detail: {
+      quality: number;
+      popularity: number;
+      maintenance: number;
+    };
+  };
+  searchScore: number;
 }
 
 export enum SKIP_EVENT_KEY {

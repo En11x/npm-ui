@@ -3,6 +3,34 @@ export interface DepInfo {
   version: string;
 }
 
+export interface PackageInfo {
+  name: string;
+  scope: string;
+  version: string;
+  description: string;
+  keywords: string[];
+  date: string;
+  links?: {
+    npm?: string;
+    homepage?: string;
+    repository?: string;
+    bugs?: string;
+  };
+  author?: {
+    name?: string;
+    email?: string;
+    username?: string;
+  };
+  publisher?: {
+    username: string;
+    email: string;
+  };
+  maintainers?: {
+    username: string;
+    email: string;
+  }[];
+}
+
 export enum SKIP_EVENT_KEY {
   "UP" = "ArrowUp",
   "DOWN" = "ArrowDown",
@@ -14,5 +42,5 @@ export enum SKIP_EVENT_KEY {
   "SPACE" = " ",
   "ENTER" = "Enter",
   "ESC" = "Escape",
-  "DEL" = 'Delete'
+  "DEL" = "Delete",
 }

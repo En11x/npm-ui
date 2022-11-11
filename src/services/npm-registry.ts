@@ -8,10 +8,13 @@ export const searchPackages = async (query: string, page = 10) => {
   controller = new AbortController();
   const signal = controller.signal;
 
-  const results = await $fetch(
+  const result = await $fetch(
     `http://registry.npmjs.com/-/v1/search?text=${query}&from=${page}`,
     { signal }
-  ).catch((e) => {});
+  ).catch((e) => {
+    console.log(e);
+  });
+  console.log(result,'result')
 
-  return { results: results.objects as NpmPackage[] };
+  return { results: result.objects as NpmPackage[] };
 };

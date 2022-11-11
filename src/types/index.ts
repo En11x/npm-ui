@@ -1,3 +1,5 @@
+import { Path } from "./path";
+
 export interface DepInfo {
   name: string;
   version: string;
@@ -20,6 +22,7 @@ export interface Package {
     name?: string;
     email?: string;
     username?: string;
+    url?:string
   };
   publisher?: {
     username: string;
@@ -56,4 +59,11 @@ export enum SKIP_EVENT_KEY {
   "ENTER" = "Enter",
   "ESC" = "Escape",
   "DEL" = "Delete",
+}
+
+export interface Header {
+  width: number;
+  name: string;
+  id: Path<Package>;
+  link?: Path<Package>;
 }

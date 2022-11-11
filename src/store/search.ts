@@ -7,17 +7,25 @@ export const useSearchStore = defineStore("search", () => {
   const keyword = ref("");
   const packages = ref<Package[]>([
     {
-      date: "",
-      description: "",
-      keywords: [""],
-      name: "",
+      name: "ab",
+      date: "a",
+      description: "aa",
+      keywords: ["aa"],
       scope: "",
-      version: "",
+      version: "1.0.1",
+      author: {
+        name: "pjx",
+        url: "url",
+      },
+      links: {
+        repository: "repository-url",
+      },
     },
   ]);
 
   async function search(k: string, p = 0) {
-    await searchPackages(k, p);
+    const { results } = await searchPackages(k, p);
+    packages.value = results.map((it) => it.package);
   }
 
   watch(keyword, () => {

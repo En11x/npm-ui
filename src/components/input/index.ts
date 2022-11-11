@@ -1,5 +1,6 @@
+import { SKIP_EVENT_KEY } from "@/types";
 import { defineComponent, h, computed, ref } from "vue";
-import { onInputData, TuiText } from "vue-termui";
+import { onInputData, TuiText, KeyDataEvent } from "vue-termui";
 
 export const Input = defineComponent({
   props: {
@@ -25,7 +26,22 @@ export const Input = defineComponent({
     });
 
     onInputData(({ data, event }) => {
-      text.value += data;
+      if (!active.value) {
+        return;
+      }
+      const eventKey = (<KeyDataEvent>event).key;
+      if (
+        Object.values(SKIP_EVENT_KEY).includes(eventKey as any) ||
+        !eventKey
+      ) {
+        return;
+      }
+      //delete
+      if (eventKey === "H" && data !== "H") {
+        text.value = props.modelValue.substring(0, props.modelValue.length - 1);
+      } else {
+        text.value = props.modelValue + data;
+      }
     });
 
     return () =>

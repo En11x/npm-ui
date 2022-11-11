@@ -8,18 +8,18 @@
         </Box>
       </Box>
       <Box v-for="(item, index) in packageShows" :key="index">
-        <Box width="3">
-          <Text>❯</Text>
+        <Box width="3" justifyContent="flex-end">
+          <Text v-if="cursorIndex === index" color="yellow">❯</Text>
+          <!-- <Text>◉</Text>
+            <Text>◉</Text> -->
         </Box>
-        <Box
-          v-for="(header, headerIndex) in headers"
-          :key="headerIndex"
-          :width="header.width"
-          :paddingRight="2"
-          justifyContent="flex-start"
-        >
+        <Box v-for="(header, headerIndex) in headers" :key="headerIndex" :width="header.width" :paddingRight="2"
+          justifyContent="flex-start">
+          <!-- <Box width="3" paddingRight="1">
+            <Text color="blue">❯</Text>
+          </Box> -->
           <Text color="white">{{
-            header.id ? get(item, header.id) : "---"
+              header.id ? get(item, header.id) : "---"
           }}</Text>
         </Box>
       </Box>
@@ -30,13 +30,12 @@
 
 <script lang="ts" setup>
 import { useSearchStore } from "@/store";
-import { Header, NpmPackage } from "@/types";
-import { Path } from "@/types/path";
-import { get } from "@/utils/index";
+import { Header } from "@/types";
+import { get } from '@/utils/get';
+import { KeyDataEvent } from "vue-termui/dist/src";
 
 const MAX_SHOW_PACKAGE = 10;
-const index = ref(0);
-const offset = ref(0);
+const cursorIndex = ref(0);
 const headers: Header[] = [
   {
     width: 42,
@@ -67,4 +66,16 @@ const packages = computed(() => searchStore.packages);
 const packageShows = computed(() => {
   return packages.value.slice(0, 10);
 });
+
+const togglePackage = (event: KeyDataEvent) => {
+  const offset = event.key === 'ArrowUp' ? -1 : 1
+  const value = cursorIndex.value + offset
+
+  cursorIndex.value = Math.max(0, Math.min(packages.value.length - 1, value))
+}
+
+
+onKeyData(['ArrowUp', 'ArrowDown'], (e) => {
+  togglePackage(e)
+})
 </script>

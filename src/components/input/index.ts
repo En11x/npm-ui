@@ -1,6 +1,6 @@
 import { SKIP_EVENT_KEY } from "@/types";
-import { defineComponent, h, computed, ref } from "vue";
-import { onInputData, TuiText, KeyDataEvent } from "vue-termui";
+import { computed, defineComponent, h, ref } from "vue";
+import { KeyDataEvent, onInputData, TuiText } from "vue-termui";
 
 export const Input = defineComponent({
   props: {
@@ -26,7 +26,7 @@ export const Input = defineComponent({
     });
 
     onInputData(({ data, event }) => {
-      if (!active.value) {
+      if (!active.value || !event) {
         return;
       }
       const eventKey = (<KeyDataEvent>event).key;

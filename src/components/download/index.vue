@@ -48,7 +48,7 @@ async function download() {
   depStore.reset()
 
   setTimeout(() => {
-    downloadStatus.value === 2
+    downloadStatus.value = 2
     progress.value = initialProgress
     setTimeout(() => {
       downloadStatus.value = 0

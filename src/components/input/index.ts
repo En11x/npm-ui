@@ -37,7 +37,11 @@ export const Input = defineComponent({
         return;
       }
       //delete
-      if ((eventKey === "H" && data !== "H") || eventKey === "Delete") {
+      if (
+        (eventKey === "H" && data !== "H") ||
+        eventKey === "Delete" ||
+        eventKey === "Backspace"
+      ) {
         text.value = props.modelValue.substring(0, props.modelValue.length - 1);
       } else {
         text.value = props.modelValue + data;

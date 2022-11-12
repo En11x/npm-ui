@@ -15,6 +15,7 @@ declare module '@vue/runtime-core' {
     Header: typeof import('./src/components/header/index.vue')['default']
     InputWrap: typeof import('./src/components/input/InputWrap.vue')['default']
     Package: typeof import('./src/components/package/index.vue')['default']
+    Progressbar: typeof import('vue-termui')['TuiProgressBar']
     Text: typeof import('vue-termui')['TuiText']
   }
 }

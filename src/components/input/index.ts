@@ -37,7 +37,7 @@ export const Input = defineComponent({
         return;
       }
       //delete
-      if (eventKey === "H" && data !== "H") {
+      if ((eventKey === "H" && data !== "H") || eventKey === "Delete") {
         text.value = props.modelValue.substring(0, props.modelValue.length - 1);
       } else {
         text.value = props.modelValue + data;

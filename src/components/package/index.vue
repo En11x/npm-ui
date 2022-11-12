@@ -31,7 +31,8 @@ import { DepInfo, Header } from "@/types";
 import { get } from '@/utils/get';
 import { KeyDataEvent } from "vue-termui/dist/src";
 
-const MAX_SHOW_PACKAGE = 10;
+//npm api return 20 once
+const MAX_SHOW_PACKAGE = 20;
 const cursorIndex = ref(0);
 const headers: Header[] = [
   {
@@ -59,6 +60,7 @@ const headers: Header[] = [
 const searchStore = useSearchStore();
 const depStore = useDepsStore()
 const keyword = computed(() => searchStore.keyword);
+const page = computed(() => searchStore.page)
 const packages = computed(() => searchStore.packages);
 const cursorIndexComputed = computed(() => {
   return Math.min(cursorIndex.value, MAX_SHOW_PACKAGE - 1)
@@ -74,6 +76,10 @@ watch(keyword, () => {
 const togglePackage = (event: KeyDataEvent) => {
   const offset = event.key === 'ArrowUp' ? -1 : 1
   const value = cursorIndex.value + offset
+
+  const loadMore = value >= packages.value.length && event.key === 'ArrowDown'
+
+  loadMore && searchStore.search(keyword.value, page.value + MAX_SHOW_PACKAGE)
 
   cursorIndex.value = Math.max(0, Math.min(packages.value.length - 1, value))
 }

@@ -40,7 +40,7 @@ async function download() {
     await install(deps.value)
     await install(devDeps.value, { isDev: true })
   } catch (error) {
-    console.log(error)
+    console.log(error, 'error')
     process.exit(1)
   }
 

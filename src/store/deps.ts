@@ -6,5 +6,22 @@ export const useDepsStore = defineStore("deps", () => {
   const deps = ref<DepInfo[]>([]);
   const devDeps = ref<DepInfo[]>([]);
 
-  return { deps, devDeps };
+  const add = (dep: DepInfo, isDev = false) => {
+    isDev
+      ? (devDeps.value = [...devDeps.value, dep])
+      : (deps.value = [...deps.value, dep]);
+  };
+
+  const remove = (name: string, isDev = false) => {
+    isDev
+      ? (devDeps.value = devDeps.value.filter((it) => it.name !== name))
+      : (deps.value = deps.value.filter((it) => it.name !== name));
+  };
+
+  const has = (name: string, isDev = false) =>
+    isDev
+      ? devDeps.value.some((it) => it.name === name)
+      : deps.value.some((it) => it.name === name);
+
+  return { deps, devDeps, add, remove, has };
 });

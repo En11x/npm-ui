@@ -8,6 +8,6 @@ export const install = async (
   packages: string[],
   { isDev = false }: options = {}
 ) => {
-  const command = `npm i ${packages.join(" ")} ${isDev ? "-D" : ""}`;
+  const command = `pnpm i ${packages.join(" ")} ${isDev ? "-D" : ""}`;
   await execaCommand(command);
 };

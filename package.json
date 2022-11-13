@@ -5,6 +5,9 @@
     "dev": "vtui dev",
     "build": "vtui build"
   },
+  "bin": {
+    "nui": "./cli.js"
+  },
   "dependencies": {
     "execa": "^6.1.0",
     "ohmyfetch": "^0.4.21",

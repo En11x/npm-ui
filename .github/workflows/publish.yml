@@ -30,7 +30,9 @@ jobs:
         run: |
           git config --global user.email "497421855@qq.com"
           git config --global user.name "Xin"
-      - run: npm run publish
+
+      - name: Publish
+        run: npm run publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 # jobs:

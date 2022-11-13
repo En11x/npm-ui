@@ -19,6 +19,7 @@ specifiers:
 dependencies:
   execa: 6.1.0
   ohmyfetch: 0.4.21
+  pinia: 2.0.23_l7r24p6nevbtlimqmqcwa3ouhu
   vue: 3.2.41
   vue-termui: 0.0.17
 
@@ -27,7 +28,6 @@ devDependencies:
   '@vitejs/plugin-vue': 3.2.0_vite@3.2.2+vue@3.2.41
   '@vue-termui/cli': 0.0.17_nj4bcihdj7hlr57e3xfa5bzpdu
   eslint: 8.27.0
-  pinia: 2.0.23_l7r24p6nevbtlimqmqcwa3ouhu
   typescript: 4.8.4
   unplugin-auto-import: 0.11.4
   unplugin-vue-components: 0.22.9_vue@3.2.41
@@ -238,7 +238,7 @@ packages:
 
   /@vue/devtools-api/6.4.5:
     resolution: {integrity: sha512-JD5fcdIuFxU4fQyXUu3w2KpAJHzTVdN+p4iOX2lMWSHMOoQdMAcpFLZzm9Z/2nmsoZ1a96QEhZ26e50xLBsgOQ==}
-    dev: true
+    dev: false
 
   /@vue/reactivity-transform/3.2.41:
     resolution: {integrity: sha512-mK5+BNMsL4hHi+IR3Ft/ho6Za+L3FA5j8WvreJ7XzHrqkPq8jtF/SMo7tuc9gHjLDwKZX1nP1JQOKo9IEAn54A==}
@@ -1305,7 +1305,7 @@ packages:
       typescript: 4.8.4
       vue: 3.2.41
       vue-demi: 0.13.11_vue@3.2.41
-    dev: true
+    dev: false
 
   /pkg-types/0.3.6:
     resolution: {integrity: sha512-uQZutkkh6axl1GxDm5/+8ivVdwuJ5pyDGqJeSiIWIUWIqYiK3p9QKozN/Rv6eVvFoeSWkN1uoYeSDBwwBJBtbg==}
@@ -1537,7 +1537,6 @@ packages:
     resolution: {integrity: sha512-QCh+85mCy+h0IGff8r5XWzOVSbBO+KfeYrMQh7NJ58QujwcE22u+NUSmUxqF+un70P9GXKxa2HCNiTTMJknyjQ==}
     engines: {node: '>=4.2.0'}
     hasBin: true
-    dev: true
 
   /ufo/0.8.6:
     resolution: {integrity: sha512-fk6CmUgwKCfX79EzcDQQpSCMxrHstvbLswFChHS0Vump+kFkw7nJBfTZoC1j0bOGoY9I7R3n2DGek5ajbcYnOw==}
@@ -1739,7 +1738,7 @@ packages:
         optional: true
     dependencies:
       vue: 3.2.41
-    dev: true
+    dev: false
 
   /vue-termui/0.0.17:
     resolution: {integrity: sha512-H2of0sxZQ1W2Aji41eUpo+E8wPXu2kMPJ5MmkHKsX2b5YriX8iqmSRwzykhY5AK9UFbZ+Q/FpyzA2IiaLgmxww==}

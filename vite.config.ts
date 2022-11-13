@@ -1,6 +1,9 @@
 import { resolve } from "path";
 import { defineConfig } from "vite";
 import VueTermui from "vite-plugin-vue-termui";
+import pkg from "./package.json";
+
+const deps = Object.keys(pkg.dependencies);
 
 export default defineConfig({
   plugins: [VueTermui()],
@@ -10,5 +13,10 @@ export default defineConfig({
       process.env.NODE_ENV === "production"
         ? ["module", "main"]
         : ["main", "module"],
+  },
+  build: {
+    rollupOptions: {
+      external: deps,
+    },
   },
 });

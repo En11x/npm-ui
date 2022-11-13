@@ -1,13 +1,30 @@
 {
   "name": "npm-ui",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "npm packages ui",
+  "author": {
+    "name": "pjx1211",
+    "email": "497421855@qq.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/XlnOnly/npm-ui"
+  },
   "scripts": {
     "dev": "vtui dev",
-    "build": "vtui build"
+    "build": "vtui build",
+    "lint:": "eslint --ext .js .ts .tsx .vue --cache",
+    "publish": "pnpm run build && npm publish"
   },
   "bin": {
     "nui": "./cli.js"
   },
+  "keywords": [
+    "npm",
+    "terminal",
+    "npmui",
+    "nui"
+  ],
   "dependencies": {
     "execa": "^6.1.0",
     "ohmyfetch": "^0.4.21",

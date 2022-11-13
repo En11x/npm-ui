@@ -20,7 +20,7 @@
     "build": "vtui build",
     "lint": "eslint --ext .js,.ts,.tsx,.vue --cache",
     "lint:fix": "pnpm run lint --fix",
-    "publish": "npm run build && npm publish"
+    "publish": "npm run build && npm publish --access=public"
   },
   "bin": {
     "nui": "./cli.js"

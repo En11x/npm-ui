@@ -1,14 +1,19 @@
 {
-  "name": "npm-ui",
-  "version": "1.0.0",
+  "name": "@pjx1211/npm-ui",
+  "version": "1.0.1",
   "description": "npm packages ui",
   "author": {
-    "name": "pjx1211",
+    "name": "XlnOnly",
     "email": "497421855@qq.com"
   },
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/XlnOnly/npm-ui"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
   },
   "scripts": {
     "dev": "vtui dev",

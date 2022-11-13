@@ -32,7 +32,7 @@ jobs:
           git config --global user.name "Xin"
 
       - name: Publish
-        run: npm run build && npm version patch && npm publish
+        run: npm run build && npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 # jobs:
